@@ -11,12 +11,15 @@
   },
   "dependencies": {
     "@eva-design/eva": "^2.0.0",
+    "@react-native-community/async-storage": "^1.11.0",
     "@ui-kitten/components": "^5.0.0",
     "@ui-kitten/eva-icons": "^5.0.0",
     "react": "16.13.1",
     "react-native": "0.63.1",
     "react-native-svg": "^12.1.0",
-    "react-redux": "^7.2.0"
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.10.5",
