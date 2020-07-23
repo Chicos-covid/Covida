@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
     right: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        alignItems: "center"
     }
 })
 

@@ -9,7 +9,7 @@ import {
 
 import Welcome from './screens/welcome/containers/welcome'
 import StartSession from './screens/log-in/containers/startSession'
-import MainPage from './screens/main/containers/index'
+import Index from './screens/main/containers/index'
 import { Text } from '@ui-kitten/components';
 import LogOn from './screens/log-in/containers/logOn';
 
@@ -25,8 +25,10 @@ class AppLayout extends Component{
     }
 
     render () {
-        if(this.props.sessionStared){
-            <MainPage />
+        if(this.props.sessionStarted){
+            return(
+                <Index />
+            )
         } else if (this.props.newUser) {
             return (
                 <LogOn />
@@ -47,7 +49,7 @@ function mapStateToProps(state){
     return {
         locationPermission: state.locationPermission,
         newUser: state.newUserRegister,
-        sessionStared: state.sessionStared
+        sessionStarted: state.sessionStarted
     }
 }
 

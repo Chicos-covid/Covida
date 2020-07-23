@@ -102,7 +102,7 @@ class LogOn extends Component{
         this.props.dispatch({
             type: 'NEW_PERFIL',
             payload: {
-                ...perfil
+                newPerfil: perfil
             }
         })
     }

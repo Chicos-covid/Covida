@@ -10,7 +10,7 @@ import reducer from './reducers/informationStatus'
 const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
-    blacklist: ['newUserRegister']
+    blacklist: ['newUserRegister', 'errorCredentials']
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer)

@@ -35,6 +35,9 @@ class StartSession extends Component{
                         </Layout>
                     </TouchableOpacity>
                 </Layout>
+                {this.props.errorCredentials &&
+                    <Text>Usuario o contraseña no válido</Text>
+                }
             </Layout>
         )
     }
@@ -58,4 +61,10 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(null)(StartSession)
+function mapStateToProps(state){
+    return{
+        errorCredentials: state.errorCredentials
+    }
+}
+
+export default connect(mapStateToProps)(StartSession)

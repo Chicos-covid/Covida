@@ -29,10 +29,17 @@ class LogInForm extends Component{
         </TouchableWithoutFeedback>
     );
     logIn = () => {
-        console.log(
-            'user: ' + this.state.user +
-            '\n pass: ' + this.state.password
-        );
+        data = {
+            user: this.state.user,
+            password: this.state.password,
+        }
+        console.log(data);
+        this.props.dispatch({
+            type: 'LOG_IN',
+            payload: {
+                credentials: data,
+            }
+        })
     }
     render() {
         return (
