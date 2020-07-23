@@ -8,44 +8,43 @@
 //** Jorge
 //** This aplication is for the call for code hackton sponsored by IBM **//
 
-import React from 'react';
+import React, { Component } from 'react';
 import * as eva from '@eva-design/eva'; // ? Framework for design 
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  StatusBar,
-} from 'react-native';
 import {
   ApplicationProvider,
   IconRegistry,
-  Layout,
-  Text
 } from '@ui-kitten/components' // ? Framework for design 
 import { EvaIconsPack } from '@ui-kitten/eva-icons' // ? Framework for Icons
+import { default as theme } from './custom-theme.json' 
 
-const HomeScreen = () => (
-  <Layout
-    style={styles.homeScreen}
-  >
-    <Text category='h1'>HOME</Text>
-  </Layout>
-);
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './store'
 
-const styles = StyleSheet.create({
-  homeScreen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-});
+import Loading from './src/sections/components/loading'
+import AppLayout from './src/app'
 
-export default () => (
-  <>
-    <IconRegistry icons={EvaIconsPack} />
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <HomeScreen />
-    </ApplicationProvider>    
-  </>
-);
+class App extends Component<Props>{
+  render() {
+    return(
+      <>
+        <IconRegistry icons={EvaIconsPack} />
+        <ApplicationProvider {...eva} theme={{...eva.light, ...theme}}>
+          <Provider
+            store={store}
+          >
+            <PersistGate
+              loading={<Loading />}
+              persistor={persistor}
+            >
+              <AppLayout />
+            </PersistGate>
+          </Provider>
+        </ApplicationProvider>
+      </>
+    )
+  };
+}
+
+
+export default App;
